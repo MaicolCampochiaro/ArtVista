@@ -1,1 +1,10 @@
 // Specific CSS for your home-page
+.container-text {
+  display: inline;
+} h1 {
+  text-align: center;
+}
+#artworks {
+  display: flex;
+  justify-content: space-around;
+}
