@@ -44,7 +44,7 @@
   <% @artworks.each do |artwork| %>
     <%= render artwork %>
     <p>
-      <%= link_to "Show this artwork", artwork %>
+      <%= link_to "Show this artwork", artwork_path(artwork) %>
     </p>
   <% end %>
 </div>
