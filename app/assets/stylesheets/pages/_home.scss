@@ -1,11 +1,32 @@
 
 // Specific CSS for your home-page
-.container-text {
-  display: inline;
-} h1 {
+
+h1 {
   text-align: center;
 }
-#artworks {
+
+// .artworks-container {
+//   display: flex;
+//   flex-wrap: wrap;
+// }
+
+// .artwork-item {
+//   width: 50%;
+//   box-sizing: border-box;
+//   padding: 10px; /* Adjust as needed for spacing between items */
+// }
+
+.artworks-container {
   display: flex;
-  justify-content: space-around;
+  flex-wrap: wrap;
+  justify-content: center; /* Center items horizontally */
+  align-items: center; /* Center items vertically */
+}
+
+.artwork-item {
+  width: 50%;
+  box-sizing: border-box;
+  padding: 10px; /* Adjust as needed for spacing between items */
+  text-align: center;
+  border: 1px solid black;
 }

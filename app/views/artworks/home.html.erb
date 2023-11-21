@@ -41,17 +41,25 @@
 <div class="container-text">
   <h1 class="first-page-title">ArtVista</h1>
 
-  <div id="artworks">
+  <%= link_to "New artwork", new_artwork_path, class: "btn btn-success", id: "NewArtWork-button" %>
+
+<div id="artworks" class="row">
+  <% if @artworks.any? %>
     <% @artworks.each do |artwork| %>
-      <%= render artwork %>
-      <p>
-        <%= link_to "Show this artwork", artwork_path(artwork) %>
-      </p>
+      <div class="col-md-6">
+        <%= render artwork %>
+        <p>
+          <%= link_to "Show this artwork", artwork_path(artwork) %>
+        </p>
+      </div>
     <% end %>
-  </div>
+  <% else %>
+    <p>No artworks available.</p>
+  <% end %>
+</div>
 
 
-<%= link_to "New artwork", new_artwork_path %>
+
 
 <footer class="footer">
   <div class="footer-links">
