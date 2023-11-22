@@ -43,9 +43,10 @@
 </div>
 
 
-<div id="artworks" class="row">
+<!-- app/views/your_view.html.erb -->
+<div id="artworks" data-controller="artworks">
   <% if @artworks.any? %>
-    <% @artworks.each do |artwork| %>
+    <% @artworks.first(8).each do |artwork| %>
       <div class="col-md-6">
         <%= render artwork %>
         <p>
@@ -53,11 +54,15 @@
         </p>
       </div>
     <% end %>
+    <div id="show-more-container">
+      <button data-action="click->artworks#showMore" data-target="artworks.showMoreBtn">
+        Show More
+      </button>
+    </div>
   <% else %>
     <p>No artworks available.</p>
   <% end %>
 </div>
-
 
 
 
