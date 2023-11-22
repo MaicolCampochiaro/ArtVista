@@ -8,18 +8,19 @@
   <h1 class="first-page-title">ArtVista</h1>
 </div>
 
-<!-- app/views/your_view.html.erb -->
 <div id="artworks" data-controller="artworks">
   <% if @artworks.any? %>
-    <% @artworks.first(30).each do |artwork| %>
-      <div class="col-md-6">
-        <%= render artwork %>
-        <p>
-          <%= link_to "Show this artwork", artwork_path(artwork) %>
-        </p>
-      </div>
-    <% end %>
-    <div id="show-more-container">
+    <div class="artworks-container">
+      <% @artworks.first(18).each do |artwork| %>
+        <div class="col-md-6">
+          <%= render artwork %>
+          <p>
+            <%= link_to "Show this artwork", artwork_path(artwork) %>
+          </p>
+        </div>
+      <% end %>
+    </div>
+    <div id="show-more-container" class="centered_btn">
       <button data-action="click->artworks#showMore" data-target="artworks.showMoreBtn">
         Show More
       </button>
