@@ -1,0 +1,24 @@
+<div id="<%= dom_id user %>">
+
+  <div class="border border-2 border-black mb-3">
+    <p>
+      <strong>Avatar:</strong>
+
+      <% if user.avatar.attached? %>
+        <%= image_tag user.avatar, width: 150 %>
+      <% end %>
+    </p>
+  </div>
+  <div class="border border-2 border-black mb-3">
+    <p>
+      <strong>Nickname:</strong>
+      <%= user.nickname %>
+    </p>
+  </div>
+  <div class="border border-2 border-black mb-3">
+    <p>
+      <strong>Address:</strong>
+      <%= user.address %>
+    </p>
+  </div>
+</div>
