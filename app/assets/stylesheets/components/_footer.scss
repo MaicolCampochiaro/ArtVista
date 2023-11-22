@@ -17,10 +17,8 @@
 
 body, html {
   background-color: #FCFCFC;
-  height: 100%;
   margin: 0;
   padding: 0;
-  min-height: 100vh;
 }
 
 .artwork-item {
@@ -30,7 +28,6 @@ body, html {
 
 .footer {
   padding: 10px;
-  position: sticky;
   bottom: 0;
   left:0;
   width: 100%;
@@ -39,7 +36,7 @@ body, html {
 }
 
 .footer-links a {
-  color: #343a40; /* Set the color for the footer links */
-  margin: 0 10px; /* Adjust as needed */
+  color: #343a40;
+  margin: 0 10px;
   text-decoration: none;
 }

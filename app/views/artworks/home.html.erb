@@ -1,11 +1,12 @@
-<%= render "navbar" %>
+<% content_for :navbar do %>
+  <%= render 'artworks/navbar' %>
+<% end %>
 
 <p style="color: green"><%= notice %></p>
 
 <div class="container-text">
   <h1 class="first-page-title">ArtVista</h1>
 </div>
-
 
 <!-- app/views/your_view.html.erb -->
 <div id="artworks" data-controller="artworks">
@@ -28,12 +29,6 @@
   <% end %>
 </div>
 
-<footer class="footer">
-  <div class="footer-links">
-    <a href="#"><i class="fab fa-github"></i></a>
-    <a href="#"><i class="fab fa-instagram"></i></a>
-    <a href="#"><i class="fab fa-facebook"></i></a>
-    <a href="#"><i class="fab fa-twitter"></i></a>
-    <a href="#"><i class="fab fa-linkedin"></i></a>
-  </div>
-</footer>
+<% content_for :footer do %>
+  <%= render 'artworks/footer' %>
+<% end %>
