@@ -11,11 +11,13 @@ end
 
 # Create 10 artworks
 10.times do
-  Artwork.create(
+  artwork = Artwork.create(
     title: Faker::Lorem.sentence,
     description: Faker::Lorem.paragraph,
-    user_id: User.all.sample.id
+    user_id: User.all.sample.id,
   )
+  artwork.image.attach(io: URI.open("https://picsum.photos/200/300"), filename: 'fake_image.jpg')
+  artwork.save
 end
 
 # Create 5 tags
