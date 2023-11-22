@@ -1,14 +1,78 @@
+<div class="navbar navbar-expand-sm navbar-light navbar-lewagon">
+  <div class="container-fluid">
+    <%= link_to "", class: "navbar-brand" do %>
+      <%= image_tag("Logo.webp", alt: "Logo") %>
+    <% end %>
+
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav me-auto">
+        <%# if user_signed_in? %>
+          <li class="nav-item active">
+            <%= link_to "Home", root_path, class: "nav-link" %>
+          </li>
+          <li class="nav-item">
+            <%= link_to "New artwork", new_artwork_path, class: "btn btn-success", id: "NewArtWork-button" %>
+          </li>
+          <li class="nav-item dropdown">
+            <%= image_tag "avatarphoto", class: "avatar dropdown-toggle", id: "navbarDropdown", data: { bs_toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false %>
+            <div class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
+              <%= link_to "Edit profile", "#", class: "dropdown-item" %>
+              <%= link_to "Log out", "#", class: "dropdown-item", data: { turbo_method: :delete } %>
+            </div>
+          </li>
+        <%# else %>
+          <!--
+          <li class="nav-item">
+            <%= link_to "Login", new_user_session_path, class: "nav-link" %>
+          </li>
+          -->
+        <%# end %>
+      </ul>
+    </div>
+  </div>
+</div>
+
 <p style="color: green"><%= notice %></p>
 
-<h1>Artworks</h1>
+<div class="container-text">
+  <h1 class="first-page-title">ArtVista</h1>
+</div>
 
-<div id="artworks">
-  <% @artworks.each do |artwork| %>
-    <%= render artwork %>
-    <p>
-      <%= link_to "Show this artwork", artwork_path(artwork) %>
-    </p>
+
+<!-- app/views/your_view.html.erb -->
+<div id="artworks" data-controller="artworks">
+  <% if @artworks.any? %>
+    <% @artworks.first(8).each do |artwork| %>
+      <div class="col-md-6">
+        <%= render artwork %>
+        <p>
+          <%= link_to "Show this artwork", artwork_path(artwork) %>
+        </p>
+      </div>
+    <% end %>
+    <div id="show-more-container">
+      <button data-action="click->artworks#showMore" data-target="artworks.showMoreBtn">
+        Show More
+      </button>
+    </div>
+  <% else %>
+    <p>No artworks available.</p>
   <% end %>
 </div>
 
-<%= link_to "New artwork", new_artwork_path %>
+
+
+
+<footer class="footer">
+  <div class="footer-links">
+    <a href="#"><i class="fab fa-github"></i></a>
+    <a href="#"><i class="fab fa-instagram"></i></a>
+    <a href="#"><i class="fab fa-facebook"></i></a>
+    <a href="#"><i class="fab fa-twitter"></i></a>
+    <a href="#"><i class="fab fa-linkedin"></i></a>
+  </div>
+</footer>
