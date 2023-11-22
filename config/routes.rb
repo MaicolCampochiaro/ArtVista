@@ -3,7 +3,10 @@ Rails.application.routes.draw do
   resources :artworks, except: [:index]
   root to: "artworks#index"
 
-  get "/artworks", to: "artworks#home"
+  get "/artworks" => "artworks#home"
+  get "/users/:id" => "users#show", as: :user
+  patch "/users/:id" => "users#update"
+  get "/users/:id/edit" => "users#edit", as: :user_edit
   get "up" => "rails/health#show", as: :rails_health_check
 
 end
