@@ -1,0 +1,19 @@
+#artworks .col-md-6 {
+  box-sizing: border-box;
+  width: 28%; /* Two artworks per row, adjust as needed */
+  padding: 10px;
+  border: 1px solid #000;
+  height: 400px;
+  margin: 10px;
+}
+#artworks {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+  max-width: 100%;
+  height: auto;
+}
+#artworks p {
+  margin: 0;
+}

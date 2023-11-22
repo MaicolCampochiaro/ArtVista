@@ -15,7 +15,7 @@
             <%= link_to "Home", root_path, class: "nav-link" %>
           </li>
           <li class="nav-item">
-            <%= link_to "Artworks", artworks_path, class: "nav-link" %>
+            <%= link_to "New artwork", new_artwork_path, class: "btn btn-success", id: "NewArtWork-button" %>
           </li>
           <li class="nav-item dropdown">
             <%= image_tag "avatarphoto", class: "avatar dropdown-toggle", id: "navbarDropdown", data: { bs_toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false %>
@@ -40,8 +40,8 @@
 
 <div class="container-text">
   <h1 class="first-page-title">ArtVista</h1>
+</div>
 
-  <%= link_to "New artwork", new_artwork_path, class: "btn btn-success", id: "NewArtWork-button" %>
 
 <div id="artworks" class="row">
   <% if @artworks.any? %>
@@ -61,6 +61,7 @@
 
 
 
+
 <footer class="footer">
   <div class="footer-links">
     <a href="#"><i class="fab fa-github"></i></a>
@@ -70,4 +71,3 @@
     <a href="#"><i class="fab fa-linkedin"></i></a>
   </div>
 </footer>
-</div>
