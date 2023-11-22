@@ -45,7 +45,7 @@
 <!-- app/views/your_view.html.erb -->
 <div id="artworks" data-controller="artworks">
   <% if @artworks.any? %>
-    <% @artworks.first(8).each do |artwork| %>
+    <% @artworks.first(30).each do |artwork| %>
       <div class="col-md-6">
         <%= render artwork %>
         <p>
