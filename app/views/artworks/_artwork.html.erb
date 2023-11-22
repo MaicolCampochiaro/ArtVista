@@ -1,8 +1,9 @@
 <div id="<%= dom_id artwork %>">
-  <p style="text-align: center;">
-    <strong></strong>
-    <%= image_tag artwork.image, height: 200, id: "card_image" %>
-  </p>
+  <% if artwork.image.attached? %>
+    <p style="text-align: center;">
+      <%= image_tag artwork.image, height: 200, id: "card_image" %>
+    </p>
+  <% end %>
   <p>
     <strong>Title:</strong>
     <%= artwork.title %>
