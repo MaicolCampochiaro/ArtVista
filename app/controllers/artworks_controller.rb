@@ -73,7 +73,7 @@ class ArtworksController < ApplicationController
 
   # Only allow a list of trusted parameters through.
   def artwork_params
-    params.require(:artwork).permit(:title, :description, :user_id)
+    params.require(:artwork).permit(:title, :description, :image, :user_id)
   end
 
   # Setting the query for the where clause
