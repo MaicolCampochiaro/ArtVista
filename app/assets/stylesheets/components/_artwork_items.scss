@@ -3,7 +3,7 @@
   width: 28%; /* Two artworks per row, adjust as needed */
   padding: 10px;
   border: 1px solid #000;
-  height: 400px;
+  height: 450px;
   margin: 10px;
 }
 #artworks {
@@ -16,4 +16,11 @@
 }
 #artworks p {
   margin: 0;
+}
+#card_image {
+  width: auto;
+  border: 1px solid black;
+  opacity: 0.8;
+  margin: 20px;
+  background-color: #f0f0f0;
 }
