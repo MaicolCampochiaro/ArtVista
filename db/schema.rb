@@ -26,6 +26,7 @@ ActiveRecord::Schema[7.1].define(version: 2023_11_21_100526) do
   create_table "artworks", force: :cascade do |t|
     t.string "title", null: false
     t.text "description"
+    t.string "image_url", null: false
     t.bigint "user_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
@@ -66,8 +67,10 @@ ActiveRecord::Schema[7.1].define(version: 2023_11_21_100526) do
     t.string "reset_password_token"
     t.datetime "reset_password_sent_at"
     t.datetime "remember_created_at"
-    t.boolean "artist", default: false
     t.string "nickname"
+    t.string "avatar_url"
+    t.string "address"
+    t.boolean "artist", default: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["email"], name: "index_users_on_email", unique: true

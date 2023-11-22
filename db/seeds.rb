@@ -3,7 +3,10 @@
   User.create(
     nickname: Faker::Name.name,
     email: Faker::Internet.email,
-    password: Faker::Internet.password
+    password: Faker::Internet.password,
+    avatar_url: Faker::LoremFlickr.image(size: "50x60", search_terms: ['avatar']),
+    address: Faker::Address.full_address,
+    artist: Faker::Boolean.boolean
   )
 end
 
@@ -12,7 +15,8 @@ end
   Artwork.create(
     title: Faker::Lorem.sentence,
     description: Faker::Lorem.paragraph,
-    user_id: User.all.sample.id
+    user_id: User.all.sample.id,
+    image_url: Faker::LoremFlickr.image(size: "50x60", search_terms: ['art'])
   )
 end
 
@@ -30,3 +34,4 @@ end
     tag_id: Tag.all.sample.id
   )
 end
+puts "Seeds created"
