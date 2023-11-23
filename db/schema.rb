@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.1].define(version: 2023_11_22_130702) do
+ActiveRecord::Schema[7.1].define(version: 2023_11_23_094112) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -57,6 +57,8 @@ ActiveRecord::Schema[7.1].define(version: 2023_11_22_130702) do
     t.bigint "user_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string "size"
+    t.float "price"
     t.index ["user_id"], name: "index_artworks_on_user_id"
   end
 
@@ -68,6 +70,8 @@ ActiveRecord::Schema[7.1].define(version: 2023_11_22_130702) do
     t.bigint "size_price_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.bigint "artwork_id", null: false
+    t.index ["artwork_id"], name: "index_reservations_on_artwork_id"
     t.index ["size_price_id"], name: "index_reservations_on_size_price_id"
     t.index ["user_id"], name: "index_reservations_on_user_id"
   end
@@ -108,6 +112,7 @@ ActiveRecord::Schema[7.1].define(version: 2023_11_22_130702) do
   add_foreign_key "artwork_tags", "artworks"
   add_foreign_key "artwork_tags", "tags"
   add_foreign_key "artworks", "users"
+  add_foreign_key "reservations", "artworks"
   add_foreign_key "reservations", "size_prices"
   add_foreign_key "reservations", "users"
   add_foreign_key "size_prices", "artworks"
