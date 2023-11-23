@@ -32,7 +32,7 @@ class ArtworksController < ApplicationController
     @artwork = Artwork.new(artwork_params)
 
     respond_to do |format|
-      if @artwork.save
+      if @artwork.save!
         format.html { redirect_to artwork_url(@artwork), notice: "Artwork was successfully created." }
         format.json { render :show, status: :created, location: @artwork }
       else

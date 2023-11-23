@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.1].define(version: 2023_11_23_094112) do
+ActiveRecord::Schema[7.1].define(version: 2023_11_22_113419) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -54,11 +54,11 @@ ActiveRecord::Schema[7.1].define(version: 2023_11_23_094112) do
   create_table "artworks", force: :cascade do |t|
     t.string "title", null: false
     t.text "description"
+    t.string "size"
+    t.float "price"
     t.bigint "user_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.string "size"
-    t.float "price"
     t.index ["user_id"], name: "index_artworks_on_user_id"
   end
 
@@ -67,22 +67,11 @@ ActiveRecord::Schema[7.1].define(version: 2023_11_23_094112) do
     t.date "start_date", null: false
     t.date "end_date", null: false
     t.bigint "user_id", null: false
-    t.bigint "size_price_id", null: false
+    t.bigint "artwork_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.bigint "artwork_id", null: false
     t.index ["artwork_id"], name: "index_reservations_on_artwork_id"
-    t.index ["size_price_id"], name: "index_reservations_on_size_price_id"
     t.index ["user_id"], name: "index_reservations_on_user_id"
-  end
-
-  create_table "size_prices", force: :cascade do |t|
-    t.string "size", null: false
-    t.float "price", null: false
-    t.bigint "artwork_id", null: false
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.index ["artwork_id"], name: "index_size_prices_on_artwork_id"
   end
 
   create_table "tags", force: :cascade do |t|
@@ -113,7 +102,5 @@ ActiveRecord::Schema[7.1].define(version: 2023_11_23_094112) do
   add_foreign_key "artwork_tags", "tags"
   add_foreign_key "artworks", "users"
   add_foreign_key "reservations", "artworks"
-  add_foreign_key "reservations", "size_prices"
   add_foreign_key "reservations", "users"
-  add_foreign_key "size_prices", "artworks"
 end
