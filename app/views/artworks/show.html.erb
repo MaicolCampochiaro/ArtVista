@@ -4,7 +4,7 @@
 
 <div class="row">
   <div class="col-9">
-    <%= render @artwork %>
+    <%= render partial: "artworks/artwork_with_size_and_price", locals: { artwork: @artwork } %>
   </div>
 
 

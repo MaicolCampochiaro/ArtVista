@@ -1,4 +1,4 @@
-<div id="<%= dom_id artwork %>" style="position: relative;">
+<div id="<%= dom_id artwork %>">
   <% if artwork.image.attached? %>
     <p style="text-align: center;">
       <%= image_tag artwork.image, height: 200, id: "card_image" %>
@@ -19,10 +19,13 @@
     <%= artwork.user_id %>
   </p>
 
-      <div id="item_price">
-    <p>
-      <strong>Price:</strong>
-      <%= number_to_currency(artwork.price.round(2).round(0.05), unit: "CHF", format: "%n %u") %>
-    </p>
-  </div>
+  <p>
+    <strong>Size:</strong>
+    <%= "#{artwork.size} cm" %>
+  </p>
+
+  <p>
+    <strong>Price:</strong>
+    <%= number_to_currency(artwork.price.round(2).round(0.05), unit: "CHF", format: "%n %u") %>
+  </p>
 </div>

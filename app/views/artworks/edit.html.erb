@@ -8,5 +8,6 @@
 
 <div>
   <%= link_to "Show this artwork", @artwork %> |
-  <%= link_to "Back to artworks", artworks_path %>
+  <%= link_to "Back to artworks", artworks_path %> |
+  <%= link_to "Delete this artwork", artwork_path(@artwork), data:{turbo_method: :delete} %>
 </div>
