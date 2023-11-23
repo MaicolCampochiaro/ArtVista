@@ -1,22 +1,23 @@
 <div id="<%= dom_id artwork %>">
-  <% if artwork.image.attached? %>
-    <p style="text-align: center;">
-      <%= image_tag artwork.image, height: 200, id: "card_image" %>
+  <%= image_tag artwork.image, height: 200, id: "card_image" %>
+  <div class="card-trip-infos">
+  <div>
+    <p>
+      <strong>Title:</strong>
+      <%= artwork.title %>
     </p>
-  <% end %>
-  <p>
-    <strong>Title:</strong>
-    <%= artwork.title %>
-  </p>
 
-  <p>
-    <strong>Description:</strong>
-    <%= artwork.description %>
-  </p>
+    <p>
+      <strong>Description:</strong>
+      <%= artwork.description %>
+    </p>
 
-  <p>
-    <strong>User:</strong>
-    <%= artwork.user_id %>
-  </p>
+    <p>
+      <strong>User:</strong>
+      <%= artwork.user_id %>
+    </p>
+  </div>
 
+
+  </div>
 </div>
