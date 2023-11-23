@@ -5,33 +5,13 @@
 <div class="row">
   <div class="col-9">
     <%= render partial: "artworks/artwork_with_size_and_price", locals: { artwork: @artwork } %>
+
   </div>
 
-
-  <div class="border border-secondary border-1 shadow p-3 mb-5 bg-body rounded col-3 section-center">
-      <div class="container">
-          <div class="row">
-            <div class="col-sm-6">
-                <div class="form-group">
-                    <span class="form-label">Check In</span>
-                    <input class="form-control" type="date" required>
-                </div>
-            </div>
-            <div class="col-sm-6">
-                <div class="form-group">
-                    <span class="form-label">Check out</span>
-                    <input class="form-control" type="date" required>
-                </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
+  <div class="col-4">
+    <%= render partial: "reservations/booking", reservation: @reservation %>
   </div>
-
 </div>
-
-
 
 
 <div>
