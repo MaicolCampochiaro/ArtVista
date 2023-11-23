@@ -16,6 +16,9 @@ class ArtworksController < ApplicationController
 
   # GET /artworks/1 or /artworks/1.json
   def show
+    @reservation = Reservation.new
+    @reservation.artwork = @artwork
+    @reservation.user = current_user
   end
 
   # GET /artworks/new
