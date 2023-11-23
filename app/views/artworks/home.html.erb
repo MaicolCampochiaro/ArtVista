@@ -1,4 +1,6 @@
-<%= render "navbar" %>
+<% content_for :navbar do %>
+  <%= render 'artworks/navbar' %>
+<% end %>
 
 <p style="color: green"><%= notice %></p>
 
@@ -6,20 +8,20 @@
   <h1 class="first-page-title">ArtVista</h1>
 </div>
 
-
-<!-- app/views/your_view.html.erb -->
-<div id="artworks" data-controller="artworks">
+<div id="artworks" data-controller="artworks" data-action="click->artworks#showMore">
   <% if @artworks.any? %>
-    <% @artworks.first(30).each do |artwork| %>
-      <div class="col-md-6">
-        <%= render artwork %>
-        <p>
-          <%= link_to "Show this artwork", artwork_path(artwork) %>
-        </p>
-      </div>
-    <% end %>
-    <div id="show-more-container">
-      <button data-action="click->artworks#showMore" data-target="artworks.showMoreBtn">
+    <div class="artworks-container">
+      <% @artworks.first(18).each do |artwork| %>
+        <div class="col-md-6">
+          <%= render artwork %>
+          <p>
+            <%= link_to "Show this artwork", artwork_path(artwork) %>
+          </p>
+        </div>
+      <% end %>
+    </div>
+    <div id="show-more-container" class="centered_btn" data-target="artworks.showMoreBtn">
+      <button>
         Show More
       </button>
     </div>
@@ -28,12 +30,6 @@
   <% end %>
 </div>
 
-<footer class="footer">
-  <div class="footer-links">
-    <a href="#"><i class="fab fa-github"></i></a>
-    <a href="#"><i class="fab fa-instagram"></i></a>
-    <a href="#"><i class="fab fa-facebook"></i></a>
-    <a href="#"><i class="fab fa-twitter"></i></a>
-    <a href="#"><i class="fab fa-linkedin"></i></a>
-  </div>
-</footer>
+<% content_for :footer do %>
+  <%= render 'artworks/footer' %>
+<% end %>
