@@ -52,6 +52,7 @@ gem "sassc-rails"
 gem "devise"
 gem "faker"
 gem "cloudinary"
+gem 'money-rails'
 
 group :development, :test do
   gem "dotenv-rails"

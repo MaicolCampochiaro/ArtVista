@@ -37,7 +37,7 @@ class ArtworksController < ApplicationController
     @artwork.user = current_user
     respond_to do |format|
       if @artwork.save!
-        format.html { redirect_to artwork_url(@artwork), notice: "Artwork was successfully created." }
+        format.html { redirect_to artwork_url(@artwork), notice: "" }
         format.json { render :show, status: :created, location: @artwork }
       else
         format.html { render :new, status: :unprocessable_entity }
@@ -61,6 +61,11 @@ class ArtworksController < ApplicationController
 
   # DELETE /artworks/1 or /artworks/1.json
   def destroy
+    @artwork = Artwork.find(params[:id])
+
+    # Delete associated records in the artwork_tags table
+    ArtworkTag.where(artwork_id: @artwork.id).destroy_all
+
     @artwork.destroy!
 
     respond_to do |format|
@@ -77,6 +82,6 @@ class ArtworksController < ApplicationController
 
   # Only allow a list of trusted parameters through.
   def artwork_params
-    params.require(:artwork).permit(:title, :description, :image, :user_id)
+    params.require(:artwork).permit(:title, :description, :image, :user_id, :size, :price)
   end
 end

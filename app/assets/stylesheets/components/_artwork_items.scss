@@ -2,7 +2,7 @@
   box-sizing: border-box;
   padding: 10px;
   border: 1px solid #000;
-  height: 450px;
+  height: 510px;
   margin: 10px;
 }
 
@@ -27,4 +27,14 @@
   margin-top: 20px;
   display: flex;
   justify-content: center;
+}
+
+/* artwork is position relative in _artwork.html */
+
+#item_price{
+  position: absolute;
+  bottom: -10;
+  right: 0;
+  margin-top: 20px;
+  padding: 10px;
 }
