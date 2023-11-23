@@ -12,7 +12,7 @@ puts "Start seeding"
   if User.last.artist == true
     puts "User #{User.last.nickname} is an artist"
     User.last.nickname = Faker::Artist.name
-    User.last.image.attach(io: URI.open(Faker::Avatar.image), filename: 'fake_image.jpg')
+    User.last.avatar.attach(io: URI.open(Faker::Avatar.image), filename: 'fake_image.jpg')
     User.last.save!
   end
 end
