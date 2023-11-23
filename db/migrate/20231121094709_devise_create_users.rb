@@ -33,7 +33,6 @@ class DeviseCreateUsers < ActiveRecord::Migration[7.1]
       # t.datetime :locked_at
 
       t.string :nickname
-      t.string :avatar_url
       t.string :address
       t.boolean :artist, default: false
 

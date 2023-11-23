@@ -2,11 +2,42 @@
 
 <p style="color: green"><%= notice %></p>
 
-<%= render @artwork %>
+<div class="row">
+  <div class="col-9">
+    <%= render @artwork %>
+  </div>
+
+
+  <div class="border border-secondary border-1 shadow p-3 mb-5 bg-body rounded col-3 section-center">
+      <div class="container">
+          <div class="row">
+            <div class="col-sm-6">
+                <div class="form-group">
+                    <span class="form-label">Check In</span>
+                    <input class="form-control" type="date" required>
+                </div>
+            </div>
+            <div class="col-sm-6">
+                <div class="form-group">
+                    <span class="form-label">Check out</span>
+                    <input class="form-control" type="date" required>
+                </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+</div>
+
+
+
 
 <div>
-  <%= link_to "Edit this artwork", edit_artwork_path(@artwork) %> |
+  <%# check if the current user is the owner of the artwork %>
+  <% if current_user %>
+    <%= link_to "Edit this artwork", edit_artwork_path(@artwork) %> |
+  <% end %>
   <%= link_to "Back to artworks", artworks_path %>
-
-  <%= button_to "Destroy this artwork", @artwork, method: :delete %>
 </div>

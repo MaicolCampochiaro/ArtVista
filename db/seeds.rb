@@ -1,3 +1,5 @@
+puts "Start seeding"
+
 # Create 5 users
 5.times do
   User.create(
@@ -8,16 +10,21 @@
     artist: Faker::Boolean.boolean
   )
 end
+puts "Users created"
 
 # Create 10 artworks
+puts "Creating artworks"
 10.times do
-  artwork = Artwork.create(
+  artwork = Artwork.new(
     title: Faker::Lorem.sentence,
     description: Faker::Lorem.paragraph,
     user_id: User.all.sample.id,
+    size: Faker::Number.number(digits: 2).to_s,
+    price: Faker::Number.decimal(l_digits: 2)
   )
   artwork.image.attach(io: URI.open("https://picsum.photos/200/300"), filename: 'fake_image.jpg')
-  artwork.save
+  artwork.save!
+  puts "Artwork created"
 end
 
 # Create 5 tags
@@ -34,4 +41,5 @@ end
     tag_id: Tag.all.sample.id
   )
 end
+
 puts "Seeds created"
