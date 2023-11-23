@@ -1,28 +1,28 @@
-<div id="<%= dom_id artwork %>" style="position: relative;">
-  <% if artwork.image.attached? %>
-    <p style="text-align: center;">
-      <%= image_tag artwork.image, height: 200, id: "card_image" %>
-    </p>
-  <% end %>
-  <p>
-    <strong>Title:</strong>
-    <%= artwork.title %>
-  </p>
+<div id="<%= dom_id artwork %>">
+  <%= image_tag artwork.image, height: 200, id: "card_image" %>
+  <div class="card-trip-infos">
+    <div>
+      <p>
+        <strong>Title:</strong>
+        <%= artwork.title %>
+      </p>
 
-  <p>
-    <strong>Description:</strong>
-    <%= artwork.description %>
-  </p>
+      <p>
+        <strong>Description:</strong>
+        <%= artwork.description %>
+      </p>
 
-  <p>
-    <strong>User:</strong>
-    <%= artwork.user_id %>
-  </p>
+      <p>
+        <strong>User:</strong>
+        <%= artwork.user_id %>
+      </p>
+    </div>
 
-      <div id="item_price">
-    <p>
-      <strong>Price:</strong>
-      <%= number_to_currency(artwork.price.round(2).round(0.05), unit: "CHF", format: "%n %u") %>
-    </p>
+    <div id="item_price">
+      <p>
+        <strong>Price:</strong>
+        <%= number_to_currency(artwork.price.round(2).round(0.05), unit: "CHF", format: "%n %u") %>
+      </p>
+    </div>
   </div>
 </div>

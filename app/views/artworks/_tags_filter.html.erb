@@ -1,0 +1,10 @@
+<div class=""></div>
+  <h4 class="mt-3">Choose the filters:</h4>
+  <div class="d-flex justify-content-evenly">
+    <% @tags.each do |tag| %>
+      <div class="col-4 m-2">
+        <%= check_box_tag 'query[tags][]', tag.id %>
+        <%= label_tag "#{tag.name}", tag.name %>
+      </div>
+    <% end %>
+  </div>
