@@ -1,11 +1,10 @@
-<h1>Editing artwork</h1>
+<h1>Editing User</h1>
 
 <%= render "form", artwork: @artwork %>
 
 <br>
 
 <div>
-  <%= link_to "Show this artwork", @artwork %> |
-  <%= link_to "Back to artworks", artworks_path %> |
-  <%= link_to "Delete this artwork", artworks_path(@artwork), data:{turbo_method: :delete} %>
+  <%= link_to "Show this user", user_path(@user) %> |
+  <%= link_to "Back to artworks", root_path %> |
 </div>

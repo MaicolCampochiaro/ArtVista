@@ -1,0 +1,6 @@
+<!-- app/views/shared/_user_avatar.html.erb -->
+<% if user && user.avatar.attached? %>
+  <%= image_tag user.avatar, width: 150, class: "avatar-large" %>
+<% else %>
+  <%= image_tag "avatarphoto", alt: "Logo", width: 150, class: "avatar-large" %>
+<% end %>
