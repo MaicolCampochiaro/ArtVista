@@ -1,5 +1,12 @@
 class ReservationsController < ApplicationController
 
+  def index
+    @reservations = Reservation.all
+  end
+
+  def show
+  end
+
   def create
     @reservation = Reservation.new(reservation_params)
     @reservation.status = "requested"
