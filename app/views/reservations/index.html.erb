@@ -3,10 +3,13 @@
 <% end %>
 
 <h1>My reservations</h1>
-
 <% @reservations.each do |reservation| %>
-  <%= image_tag reservation.artwork.image, class: "your-image-class" %>
-  <p><strong>Artwork:</strong> <%= reservation.artwork.title %></p>
-  <p><strong>Start Date:</strong> <%= reservation.start_date %></p>
-  <p><strong>End Date:</strong> <%= reservation.end_date %></p>
+  <div class="card-product">
+    <%= image_tag reservation.artwork.image, class: "your-image-class" %>
+    <div class="card-product-infos">
+      <p><strong>Title:</strong> <%= reservation.artwork.title %></p>
+      <p><strong>Start Date:</strong> <%= reservation.start_date %></p>
+      <p><strong>End Date:</strong> <%= reservation.end_date %></p>
+    </div>
+  </div>
 <% end %>
