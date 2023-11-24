@@ -1,8 +1,13 @@
-<%= form_with url: root_path, method: :get, class: "d-flex" do %>
-  <%= text_field_tag :query,
-        params[:query],
-        class: "form-control",
-        placeholder: "Type a keyword"
-    %>
-  <%= submit_tag "Search", name: "", class: "button btn btn-primary" %>
+<%= form_with url: root_path, method: :get do |f| %>
+  <div class="d-flex">
+    <%= text_field_tag :query,
+          params[:query],
+          class: "form-control",
+          placeholder: "Type a keyword"
+      %>
+    <%= submit_tag "Search", name: "", class: "button btn btn-primary" %>
+  </div>
+
+  <%= f.collection_check_boxes :tag, @tags, :name, :name%>
+
 <% end %>

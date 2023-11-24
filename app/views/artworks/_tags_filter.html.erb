@@ -1,10 +1,13 @@
-<div class=""></div>
+<% form_with url: root_path, method: :get do %>
+<div class="col-6">
   <h4 class="mt-3">Choose the filters:</h4>
-  <div class="d-flex justify-content-evenly">
+  <div class="d-flex flex-wrap container row">
     <% @tags.each do |tag| %>
-      <div class="col-4 m-2">
-        <%= check_box_tag 'query[tags][]', tag.id %>
+      <div class="col-4 my-2">
+        <%= check_box_tag 'query[tags][]', tag.name %>
         <%= label_tag "#{tag.name}", tag.name %>
       </div>
     <% end %>
   </div>
+</div>
+<% end %>
