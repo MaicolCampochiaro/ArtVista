@@ -1,9 +1,11 @@
-<%= render "navbar" %>
+<% content_for :navbar do %>
+  <%= render 'artworks/navbar' %>
+<% end %>
 
 <p style="color: green"><%= notice %></p>
 
 <div class="row">
-  <div class="col-9">
+  <div class="col-8">
     <%= render partial: "artworks/artwork_with_size_and_price", locals: { artwork: @artwork } %>
 
   </div>
@@ -21,3 +23,7 @@
   <% end %>
   <%= link_to "Back to artworks", root_path %>
 </div>
+
+<% content_for :footer do %>
+  <%= render 'artworks/footer' %>
+<% end %>

@@ -1,4 +1,6 @@
-<%= render "navbar" %>
+<% content_for :navbar do %>
+  <%= render 'artworks/navbar' %>
+<% end %>
 
 <h1>New artwork</h1>
 
@@ -8,3 +10,7 @@
 <div>
   <%= link_to "Back to artworks", root_path %>
 </div>
+
+<% content_for :footer do %>
+  <%= render 'artworks/footer' %>
+<% end %>

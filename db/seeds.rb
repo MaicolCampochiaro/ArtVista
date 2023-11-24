@@ -26,7 +26,7 @@ end
     size: Faker::Number.number(digits: 2).to_s,
     price: Faker::Number.decimal(l_digits: 2)
   )
-  artwork.image.attach(io: URI.open("https://picsum.photos/200/300"), filename: 'fake_image.jpg')
+  artwork.image.attach(io: URI.open("https://picsum.photos/200/300?random=#{Faker::Number.number(digits: 4)}"), filename: 'fake_image.jpg')
   artwork.save!
 end
 
