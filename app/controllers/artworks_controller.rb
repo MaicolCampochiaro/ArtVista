@@ -4,20 +4,50 @@ class ArtworksController < ApplicationController
   # GET /artworks or /artworks.json
   def home
     @tags = Tag.all
-    if params[:query].present? || params[:tag].present?
+    puts "A
+    a
+    a
+    a
+    a
+    a
+    a
+    a
+    parms = #{params}"
+
+    if params[:tag].present?
+      tags = params[:tag].map { |tag| if tag.present? then tag else nil end }.compact
+        puts "A
+      A
+      A
+      A
+      a
+      a
+      a
+      a
+      a
+      tags = #{tags}"
+    end
+    if params[:query].present? || tags.present?
       sql_subquery = <<~SQL
         artworks.title ILIKE :query
         OR users.nickname ILIKE :query
         SQL
-      tags = params[:tag].map { |tag| if tag.present? then tag else nil end }.compact
       if tags.present?
         sql_subquery += <<~SQL
-        AND tags.name IN (:tags)
+        AND tags.id IN (:tags)
         SQL
       end
-
-      @artworks = Artwork.joins(:user, artwork_tags: :tag).where(sql_subquery, query: "%#{params[:query]}%", tags: tags ).group("artworks.id")
-raise
+      @artworks = Artwork.joins(:user, :artwork_tags => :tag).where(sql_subquery, query: "%#{params[:query]}%", tags: tags ).group("artworks.id")
+      puts "A
+      A
+      A
+      A
+      a
+      a
+      a
+      a
+      a
+      SQL = #{@artworks.to_sql}"
     else
       @artworks = Artwork.all
     end
