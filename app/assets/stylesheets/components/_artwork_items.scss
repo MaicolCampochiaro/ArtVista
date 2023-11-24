@@ -16,8 +16,12 @@
   box-shadow: 0 0 15px rgba(0,0,0,0.2);
   margin: 0px 20px 20px 0px;
 }
+#image_show {
+  height: 100%;
+  object-fit: cover;
+}
 
-#card_image {
+.card_image {
   height: 200px;
   width: 100%;
   object-fit: cover;
@@ -63,4 +67,13 @@
   right: 110px;
   top: 90px;
   width: 150px;
+}
+
+.artworks-container {
+  margin-top: 20px;
+}
+
+.image_show {
+  height: 500px;
+  object-fit: cover;
 }
