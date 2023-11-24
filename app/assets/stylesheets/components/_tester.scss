@@ -1,23 +1,10 @@
-.artworks-container {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-}
-
-.centered_btn {
-  margin-top: 20px;
-  display: flex;
-  justify-content: center;
-}
-
 .card-trip {
   overflow: hidden;
   background: white;
   box-shadow: 0 0 15px rgba(0,0,0,0.2);
-  margin: 0px 20px 20px 0px;
 }
 
-#card_image {
+.card-trip > img {
   height: 200px;
   width: 100%;
   object-fit: cover;
@@ -49,18 +36,4 @@
   right: 16px;
   top: -20px;
   width: 40px;
-}
-
-.card-trip-infos .card-trip-pricing {
-  position: absolute;
-  right: 0px;
-  top: 90px;
-  width: 80px;
-}
-
-#show_art_work {
-  position: absolute;
-  right: 110px;
-  top: 90px;
-  width: 150px;
 }
