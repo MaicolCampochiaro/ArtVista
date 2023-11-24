@@ -1,24 +1,18 @@
 <div id="<%= dom_id user %>">
 
-  <div class="border border-2 border-black mb-3">
-    <p>
-      <strong>Avatar:</strong>
+  <div class="notification">
+  <% if user.avatar.attached? %>
+          <%= render partial: 'users/user_avatar', locals: { user: user } %>
+  <% else %>
+          <%= image_tag "avatarphoto", alt: "Logo", width: 150, class: "avatar-large" %>
+  <% end %>
+    <div class="notification-content">
+      <p><strong><%= user.nickname %></strong></p>
+      <p><%= user.address %></p>
+    </div>
 
-      <% if user.avatar.attached? %>
-        <%= image_tag user.avatar, width: 150 %>
-      <% end %>
-    </p>
-  </div>
-  <div class="border border-2 border-black mb-3">
-    <p>
-      <strong>Nickname:</strong>
-      <%= user.nickname %>
-    </p>
-  </div>
-  <div class="border border-2 border-black mb-3">
-    <p>
-      <strong>Address:</strong>
-      <%= user.address %>
-    </p>
+    <div class="notification-actions">
+      <%= link_to "Edit this user", user_edit_path(@user) %> <i class="fas fa-pencil-alt"></i></a>
+    </div>
   </div>
 </div>

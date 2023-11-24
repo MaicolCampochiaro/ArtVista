@@ -17,11 +17,8 @@
   <% if @artworks.any? %>
     <div class="artworks-container">
       <% @artworks.first(18).each do |artwork| %>
-        <div class="card-trip col-md-4">
+        <div class="card-trip col-md-3">
           <%= render artwork %>
-          <p>
-            <%= link_to "Show this artwork", artwork_path(artwork) %>
-          </p>
         </div>
       <% end %>
     </div>
