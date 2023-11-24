@@ -9,28 +9,32 @@ puts "Start seeding"
     address: Faker::Address.full_address,
     artist: Faker::Boolean.boolean
   )
+  if User.last.artist == true
+    puts "User #{User.last.nickname} is an artist"
+    User.last.nickname = Faker::Artist.name
+    User.last.avatar.attach(io: URI.open(Faker::Avatar.image), filename: 'fake_image.jpg')
+    User.last.save!
+  end
 end
-puts "Users created"
 
 # Create 10 artworks
-puts "Creating artworks"
 10.times do
   artwork = Artwork.new(
     title: Faker::Lorem.sentence,
     description: Faker::Lorem.paragraph,
-    user_id: User.all.sample.id,
+    user_id: User.where(artist: true).sample.id,
     size: Faker::Number.number(digits: 2).to_s,
     price: Faker::Number.decimal(l_digits: 2)
   )
-  artwork.image.attach(io: URI.open("https://picsum.photos/200/300"), filename: 'fake_image.jpg')
+  artwork.image.attach(io: URI.open("https://picsum.photos/200/300?random=#{Faker::Number.number(digits: 4)}"), filename: 'fake_image.jpg')
   artwork.save!
-  puts "Artwork created"
 end
 
 # Create 5 tags
-5.times do
+TAGS = ['Landscape', 'Portrait', 'Abstract', 'Still Life', 'Impressionism', 'Modern', 'Contemporary', 'Expressionism', 'Surrealism', 'Pop Art', 'Minimalism']
+TAGS.each do |tag|
   Tag.create(
-    name: Faker::Lorem.word
+    name: tag
   )
 end
 
