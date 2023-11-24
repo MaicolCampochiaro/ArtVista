@@ -2,7 +2,7 @@
   <%= render 'artworks/navbar' %>
 <% end %>
 
-<p style="color: green"><%= notice %></p>
+
 
 <div class="container-text">
   <h1 class="first-page-title">ArtVista</h1>
@@ -17,7 +17,9 @@
     <div class="artworks-container">
       <% @artworks.first(18).each do |artwork| %>
         <div class="card-trip col-md-3">
+
           <%= render artwork %>
+
         </div>
       <% end %>
     </div>

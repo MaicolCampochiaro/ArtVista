@@ -1,6 +1,6 @@
 <div id="<%= dom_id artwork %>">
-  <%= link_to root_path, class: "navbar-brand" do %>
-    <%= image_tag artwork.image, id: "card_image" %>
+  <%= link_to artwork_path(artwork) do %>
+    <%= image_tag artwork.image, class: "card_image" %>
   <% end %>
   <div class="card-trip-infos">
     <div>
@@ -13,16 +13,15 @@
         <%= artwork.description %>
       </p>
 
-      <p id="show_art_work">
-            <%= link_to "Show this artwork", artwork_path(artwork) %>
-          </p>
     </div>
 
     <div class="card-trip-pricing">
-      <p>
-        <%= number_to_currency(artwork.price.round(2).round(0.05), unit: "CHF", format: "%n %u") %>
-      </p>
+
     </div>
-    <%= image_tag artwork.user.avatar, class: "card-trip-user avatar-bordered" %>
+    <% if artwork.user.avatar.attached? %>
+              <%= image_tag artwork.user.avatar, class: "card-trip-user avatar-bordered"%>
+            <% else %>
+              <%= image_tag "avatarphoto", class: "card-trip-user avatar-bordered", alt: "Logo" %>
+            <% end %>
   </div>
 </div>
