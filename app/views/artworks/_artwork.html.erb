@@ -1,16 +1,21 @@
 <div id="<%= dom_id artwork %>">
-  <%= image_tag artwork.image, id: "card_image" %>
+  <%= link_to root_path, class: "navbar-brand" do %>
+    <%= image_tag artwork.image, id: "card_image" %>
+  <% end %>
   <div class="card-trip-infos">
     <div>
-      <p>
-        <strong>Title:</strong>
-        <%= artwork.title %>
-      </p>
+      <h5>
+        <strong><%= artwork.title %></strong>
+      </h5>
 
       <p>
         <strong>Description:</strong>
         <%= artwork.description %>
       </p>
+
+      <p id="show_art_work">
+            <%= link_to "Show this artwork", artwork_path(artwork) %>
+          </p>
     </div>
 
     <div class="card-trip-pricing">
